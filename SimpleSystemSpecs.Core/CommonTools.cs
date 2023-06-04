@@ -74,6 +74,39 @@ namespace SimpleSystemSpecs
                 //   logger.TraceException(ex.Message, ex);
                 //  }
             }
+        
+
+        }
+         public static string FormatFilesyzeToCorrectMeasurement(long filesize)
+        {
+            try
+            {
+                string ap = "";
+                if (filesize >= 0)
+                {
+                    string sLen = filesize.ToString();
+                    if (filesize >= (1 << 30))
+                        sLen = string.Format("{0}Gb", filesize >> 30);
+                    else
+                    if (filesize >= (1 << 20))
+                        sLen = string.Format("{0}Mb", filesize >> 20);
+                    else
+                    if (filesize >= (1 << 10))
+                        sLen = string.Format("{0}Kb", filesize >> 10);
+
+                    ap = sLen;
+                }
+
+                return ap;
+            }
+            catch (Exception ex)
+            {
+                CommonTools.ErrorReporting(ex);
+
+
+                return "";
+            }
+
 
         }
     }
