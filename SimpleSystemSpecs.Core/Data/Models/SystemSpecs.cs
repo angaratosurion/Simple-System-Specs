@@ -25,6 +25,8 @@ namespace SimpleSystemSpecs.Core.Data.Models
         public string OperatingSystemServicePack { get; set; }
         [DisplayName("Operating System Type")]
         public  string OperatingSystemType  { get; set; }
-         
+        public List<RAM> RAM { get; set; }
+        public List<DiskDrive> DiskDrive { get; set; }
+
     }
 }
