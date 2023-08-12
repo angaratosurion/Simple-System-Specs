@@ -34,12 +34,12 @@ namespace SimpleSystemSpecs.Core
                             if (managementObject["TotalVirtualMemorySize"] != null)
                             {
                                 managementObject["TotalVirtualMemorySize"].ToString();     //Display operating system version.
-                                double num = (long.Parse(managementObject["TotalVirtualMemorySize"].ToString()) / 8)/ (1024 ^ 2);
+                                double num = long.Parse(managementObject["TotalVirtualMemorySize"].ToString()) / (1024 ^ 2);
                                 specs2.TotalVirtualMemorySize = Convert.ToString(Math.Round(num))+"GB";
                             }
                             if (managementObject["TotalVisibleMemorySize"] != null)
                             {
-                                double num = (long.Parse(managementObject["TotalVisibleMemorySize"].ToString()) / 8) / (1024 ^ 2);
+                                double num = long.Parse(managementObject["TotalVisibleMemorySize"].ToString())  / (1024 ^ 2);
                                 specs2.TotalVisibleMemorySize = Convert.ToString(num)+"GB"; 
                             }
                             if (managementObject["TotalSwapSpaceSize"] != null)
