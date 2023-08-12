@@ -33,18 +33,19 @@ namespace SimpleSystemSpecs.Core
                         {
                             if (managementObject["TotalVirtualMemorySize"] != null)
                             {
-                                managementObject["TotalVirtualMemorySize"].ToString();     //Display operating system version.
-                                double num = long.Parse(managementObject["TotalVirtualMemorySize"].ToString()) / (1024 ^ 2);
+                                managementObject["TotalVirtualMemorySize"].ToString();     
+                                double num = (long.Parse(managementObject["TotalVirtualMemorySize"].ToString()) / (1024 ^ 2))/ (1024 ^ 2);
                                 specs2.TotalVirtualMemorySize = Convert.ToString(Math.Round(num))+"GB";
                             }
                             if (managementObject["TotalVisibleMemorySize"] != null)
                             {
-                                double num = long.Parse(managementObject["TotalVisibleMemorySize"].ToString())  / (1024 ^ 2);
+                                double num = ((long.Parse(managementObject["TotalVisibleMemorySize"].ToString()) ) /
+                                    (1024 ^ 2))/ (1024 ^ 2);
                                 specs2.TotalVisibleMemorySize = Convert.ToString(num)+"GB"; 
                             }
                             if (managementObject["TotalSwapSpaceSize"] != null)
                             {
-                                specs2.TotalSwapSpaceSize = CommonTools.FormatFilesyzeToCorrectMeasurement(long.Parse(managementObject["TotalSwapSpaceSize"].ToString()));//Display operating system version.
+                                specs2.TotalSwapSpaceSize = CommonTools.FormatFilesyzeToCorrectMeasurement(long.Parse(managementObject["TotalSwapSpaceSize"].ToString()));
 
                             }
 
@@ -58,11 +59,11 @@ namespace SimpleSystemSpecs.Core
                             }
                             if (managementObject["CSDVersion"] != null)
                             {
-                                specs2.OperatingSystemServicePack = managementObject["CSDVersion"].ToString();     //Display operating system version.
+                                specs2.OperatingSystemServicePack = managementObject["CSDVersion"].ToString();     
                             }
                             if (managementObject["OtherTypeDescription"] != null)
                             {
-                                specs2.OperatingSystemType = managementObject["OtherTypeDescription"].ToString();     //Display operating system version.
+                                specs2.OperatingSystemType = managementObject["OtherTypeDescription"].ToString();     
                             }
                         }
                     }
@@ -84,17 +85,21 @@ namespace SimpleSystemSpecs.Core
                         {
                             if (managementObject["TotalVirtualMemorySize"] != null)
                             {
-                                managementObject["TotalVirtualMemorySize"].ToString();     //Display operating system version.
-
-                                specs2.TotalVirtualMemorySize = managementObject["TotalVirtualMemorySize"].ToString();
+                                managementObject["TotalVirtualMemorySize"].ToString();     
+                                double num = (long.Parse(managementObject["TotalVirtualMemorySize"].ToString()) / 
+                                    (1024 ^ 2)) 
+                                    / (1024 ^ 2);
+                                specs2.TotalVirtualMemorySize = Convert.ToString(Math.Round(num)) + "GB";
                             }
                             if (managementObject["TotalVisibleMemorySize"] != null)
                             {
-                                specs2.TotalVisibleMemorySize = managementObject["TotalVisibleMemorySize"].ToString();//Display operating system version.
+                                double num = (long.Parse(managementObject["TotalVisibleMemorySize"].ToString()) / (1024 ^ 2))
+                                    / (1024 ^ 2);
+                                specs2.TotalVisibleMemorySize = Convert.ToString(num) + "GB";
                             }
                             if (managementObject["TotalSwapSpaceSize"] != null)
                             {
-                                specs2.TotalSwapSpaceSize = managementObject["TotalSwapSpaceSize"].ToString();//Display operating system version.
+                                specs2.TotalSwapSpaceSize = managementObject["TotalSwapSpaceSize"].ToString();
 
                             }
 
@@ -108,11 +113,11 @@ namespace SimpleSystemSpecs.Core
                             }
                             if (managementObject["CSDVersion"] != null)
                             {
-                                specs2.OperatingSystemServicePack = managementObject["CSDVersion"].ToString();     //Display operating system version.
+                                specs2.OperatingSystemServicePack = managementObject["CSDVersion"].ToString();     
                             }
                             if (managementObject["OtherTypeDescription"] != null)
                             {
-                                specs2.OperatingSystemType = managementObject["OtherTypeDescription"].ToString();     //Display operating system version.
+                                specs2.OperatingSystemType = managementObject["OtherTypeDescription"].ToString();     
                             }
                         }
                         //Win32_MemoryDevice
@@ -124,7 +129,7 @@ namespace SimpleSystemSpecs.Core
 
                             if (managementObject["DeviceLocator"] != null)
                             {
-                                // managementObject["DeviceLocator "].ToString();     //Display operating system version.
+                                // managementObject["DeviceLocator "].ToString();     
 
                                 ram.DeviceLocator = managementObject["DeviceLocator"].ToString();
                             }
@@ -170,7 +175,7 @@ namespace SimpleSystemSpecs.Core
                             DiskDrive diskDrive = new DiskDrive();
                             if (managementObject["SCSIPort"] != null)
                             {
-                                // managementObject["DeviceLocator "].ToString();     //Display operating system version.
+                                // managementObject["DeviceLocator "].ToString();     
 
                                 diskDrive.SCSIPort = int.Parse(managementObject["SCSIPort"].ToString());
 
