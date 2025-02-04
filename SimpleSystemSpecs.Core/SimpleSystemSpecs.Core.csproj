@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>0.0.8.0</Version>
+    <Version>0.0.8.5</Version>
     <Platforms>AnyCPU;x64</Platforms>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageLicenseExpression> LGPL-2.1-or-later</PackageLicenseExpression>
